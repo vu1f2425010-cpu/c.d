@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-obsidian: #0B0F19;
+    --bg-card: rgba(15, 23, 42, 0.75);
+    --border-cyan: rgba(0, 240, 255, 0.25);
+    --neon-cyan: #00F0FF;
+    --neon-emerald: #10B981;
+    --neon-crimson: #FF0055;
+    --neon-amber: #F59E0B;
+  }
+
+  body {
+    background-color: #0b0f19;
+    color: #f1f5f9;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Cyber Glow Utilities & Animations */
+.cyber-glass {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.08);
+}
+
+.cyber-glass-emerald {
+  background: rgba(6, 78, 59, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.15);
+}
+
+.cyber-glass-crimson {
+  background: rgba(136, 19, 55, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 0, 85, 0.4);
+  box-shadow: 0 0 25px rgba(255, 0, 85, 0.15);
+}
+
+.cyber-glow-cyan {
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+.cyber-glow-emerald {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+.cyber-glow-crimson {
+  box-shadow: 0 0 20px rgba(255, 0, 85, 0.5);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.6), 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+.text-glow-emerald {
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+}
+
+.text-glow-crimson {
+  text-shadow: 0 0 10px rgba(255, 0, 85, 0.6);
+}
+
+/* Background Cyber Matrix Grid */
+.bg-cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+/* Scanline Effect Overlay */
+.scanline-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline-overlay::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Keyframe Animations */
+@keyframes laserSweep {
+  0% {
+    top: 0%;
+    opacity: 0.8;
+  }
+  50% {
+    top: 96%;
+    opacity: 1;
+  }
+  100% {
+    top: 0%;
+    opacity: 0.8;
+  }
+}
+
+.animate-laser-sweep {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #00F0FF, #ffffff, #00F0FF, transparent);
+  box-shadow: 0 0 15px #00F0FF, 0 0 25px #00F0FF;
+  animation: laserSweep 2.5s ease-in-out infinite;
+  z-index: 20;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite;
+}
